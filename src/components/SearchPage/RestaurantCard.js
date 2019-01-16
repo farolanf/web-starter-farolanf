@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import Typography from '@material-ui/core/Typography';
@@ -56,17 +57,28 @@ const styles = (theme) => ({
   },
   grow: {
     flex: 'auto'
+  },
+  link: {
+    textDecoration: 'unset'
   }
 });
 
 const Info = withStyles(styles)(
-  ({ Icon, text, textVariant, Text, classes, gutter, darkIcon }) => (
+  ({ Icon, text, textVariant, Text, classes, gutter, darkIcon, to }) => (
     <div className={classNames(classes.info, { [classes.infoGutter]: gutter })}>
       <Icon className={darkIcon ? classes.darkIcon : classes.icon} />
       {text && (
-        <Typography variant={textVariant} color="primary" noWrap>
-          {text}
-        </Typography>
+        to ? (
+          <Link to={to} className={classes.link}>
+            <Typography variant={textVariant} color="primary" noWrap>
+              {text}
+            </Typography>
+          </Link>
+        ) : (
+          <Typography variant={textVariant} color="primary" noWrap>
+            {text}
+          </Typography>
+        )
       )}
       {Text}
     </div>
@@ -77,7 +89,12 @@ const RestaurantCard = ({ restaurant, classes }) => (
   <div className={classes.root}>
     <Card className={classes.card}>
       <CardContent className={classes.content}>
-        <Info Icon={LocationIcon} text={restaurant.title} textVariant="subtitle2" />
+        <Info
+          Icon={LocationIcon}
+          text={restaurant.title}
+          textVariant="subtitle2"
+          to={'/rest/' + restaurant.id}
+        />
         <Typography variant="caption" color="textSecondary">
           {restaurant.cuisine}
         </Typography>
