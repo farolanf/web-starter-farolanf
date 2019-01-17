@@ -8,6 +8,8 @@ import {
   Marker
 } from 'react-google-maps';
 
+import blueMarker from '../../assets/img/blue_MarkerM.png';
+
 const GMap = ({ data, search }) => {
   const { coord, useCoord } = search;
 
@@ -40,6 +42,7 @@ const GMap = ({ data, search }) => {
             lat: coord.lat,
             lng: coord.lon
           }}
+          icon={blueMarker}
         />
       )}
       {data.search_restaurants
