@@ -13,7 +13,7 @@ import GMap from './containers/GMap';
 
 const styles = (theme) => ({
   root: {
-    padding: '0 10px',
+    paddingLeft: 10,
     backgroundColor: theme.palette.background.default
   },
   map: {
@@ -26,6 +26,8 @@ const styles = (theme) => ({
     height: '100vh'
   },
   toolbarContainer: {
+    boxSizing: 'border-box',
+    width: '100%',
     paddingTop: 8,
     [theme.breakpoints.up('md')]: {
       position: 'absolute',
