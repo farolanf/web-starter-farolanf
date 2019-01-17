@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import SearchPage from './components/SearchPage';
 import RestPage from './components/RestPage';
+
+import SearchPage from './containers/SearchPage';
 
 import * as ROUTES from './utils/routes';
 import './App.css';

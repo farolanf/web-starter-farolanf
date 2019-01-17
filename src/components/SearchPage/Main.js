@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Header from './Header';
 import RestaurantCard from './RestaurantCard';
 import GMap from './GMap';
+import Toolbar from './containers/Toolbar';
 
 const styles = (theme) => ({
   root: {
@@ -22,6 +23,15 @@ const styles = (theme) => ({
     borderRadius: 8,
     overflow: 'hidden',
     height: '100vh'
+  },
+  toolbarContainer: {
+    paddingTop: 8,
+    [theme.breakpoints.up('md')]: {
+      position: 'absolute',
+      top: 0,
+      zIndex: 1,
+      padding: 6
+    }
   }
 });
 
@@ -29,6 +39,11 @@ const Main = ({ classes, data, loading }) => (
   <div className={classes.root}>
     <Grid container>
       <Grid item xs={12} md={4}>
+        <Hidden mdUp>
+          <div className={classes.toolbarContainer}>
+            <Toolbar />
+          </div>
+        </Hidden>
         <Header />
         {loading && <CircularProgress />}
         {data.search_restaurants
@@ -46,6 +61,9 @@ const Main = ({ classes, data, loading }) => (
       <Hidden smDown>
         <Grid item xs>
           <div className={classes.map}>
+            <div className={classes.toolbarContainer}>
+              <Toolbar />
+            </div>
             <GMap data={data} />
           </div>
         </Grid>

@@ -23,7 +23,7 @@ const GMap = ({ data, lat, lng }) => {
         fullscreenControl: false
       }}
       center={{ lat: lat || -34.397, lng: lng || 150.644 }}
-      zoom={15}
+      zoom={14}
     >
       {data.search_restaurants
         && data.search_restaurants.results
