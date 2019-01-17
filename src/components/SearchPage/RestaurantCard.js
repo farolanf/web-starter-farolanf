@@ -97,7 +97,7 @@ const RestaurantCard = ({ restaurant, classes }) => (
     </Card>
     <div className={classes.infoRow}>
       <Typography variant="caption" color="textSecondary">
-        {restaurant.open_closed}
+        {restaurant.open_closed + ' \u2022 0.6 miles away'}
       </Typography>
       <div className={classes.grow} />
       <Info Icon={WalkIcon} text="6min" textVariant="caption" gutter />
