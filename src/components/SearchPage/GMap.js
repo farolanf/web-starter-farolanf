@@ -18,12 +18,12 @@ const GMap = ({ data, lat, lng }) => {
 
   return (
     <GoogleMap
-      defaultZoom={15}
-      defaultCenter={{ lat: lat || -34.397, lng: lng || 150.644 }}
       defaultOptions={{
         mapTypeControl: false,
         fullscreenControl: false
       }}
+      center={{ lat: lat || -34.397, lng: lng || 150.644 }}
+      zoom={15}
     >
       {data.search_restaurants
         && data.search_restaurants.results
