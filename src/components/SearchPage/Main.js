@@ -7,8 +7,9 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Header from './Header';
 import RestaurantCard from './RestaurantCard';
-import GMap from './GMap';
 import Toolbar from './containers/Toolbar';
+
+import GMap from './containers/GMap';
 
 const styles = (theme) => ({
   root: {
