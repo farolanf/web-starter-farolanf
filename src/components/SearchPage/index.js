@@ -7,12 +7,13 @@ import Main from './Main';
 
 class SearchPage extends Component {
   render() {
+    const { searchLocation } = this.props;
     return (
       // Variables can be either lat and lon OR address
       <Query
         query={RESTAURANT_SEARCH_QUERY}
         variables={{
-          address: 'Chicago'
+          address: searchLocation || 'Chicago'
         }}
       >
         {({ loading, error, data = {} }) => {

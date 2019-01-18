@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider as StoreProvider } from 'react-redux';
 
 import moment from 'moment';
 
@@ -13,12 +14,13 @@ import { client } from './utils/apollo';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import store from './store';
+
 import theme from './Theme';
 
 import 'typeface-roboto';
 // import { setContext } from 'apollo-link-context';
 // import Cookies from 'universal-cookie';
-
 
 // Configure moment to use shorthand relative time
 moment.updateLocale('en', {
@@ -44,7 +46,9 @@ ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <BrowserRouter>
       <ApolloProvider client={client}>
-        <App />
+        <StoreProvider store={store}>
+          <App />
+        </StoreProvider>
       </ApolloProvider>
     </BrowserRouter>
   </MuiThemeProvider>,
