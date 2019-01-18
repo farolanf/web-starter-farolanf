@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Fab from '@material-ui/core/Fab';
 import InputBase from '@material-ui/core/InputBase';
+import Hidden from '@material-ui/core/Hidden';
 
 import LocationIcon from '@material-ui/icons/LocationOn';
 import SearchIcon from '@material-ui/icons/Search';
@@ -109,6 +110,35 @@ class Toolbar extends Component {
               </form>
             </Paper>
           </Grid>
+          <Hidden smDown>
+            <Grid item md container spacing={8} justify="flex-end">
+              <Grid item>
+                <Fab
+                  variant="extended"
+                  color="primary"
+                  size="small"
+                  disabled
+                  classes={{
+                    label: classes.buttonLabel
+                  }}
+                >
+                  Log In
+                </Fab>
+              </Grid>
+              <Grid item>
+                <Fab
+                  variant="extended"
+                  color="primary"
+                  size="small"
+                  classes={{
+                    label: classes.buttonLabel
+                  }}
+                >
+                  Sign Up
+                </Fab>
+              </Grid>
+            </Grid>
+          </Hidden>
         </Grid>
       </div>
     );
