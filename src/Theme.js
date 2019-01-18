@@ -1,6 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 
+import blue from '@material-ui/core/colors/blue';
+import lightBlue from '@material-ui/core/colors/lightBlue';
+
 const DEFAULT_SPACING = 8;
 
 const palette = {
@@ -10,7 +13,7 @@ const palette = {
   },
   background: {
     paper: '#fff',
-    default: '#fbf8f5'
+    default: lightBlue[50]
   },
   primary: {
     light: '#462864',
@@ -33,8 +36,8 @@ const palette = {
     contrastText: '#fff'
   },
   text: {
-    primary: '#231632',
-    secondary: '#bcbabf',
+    primary: blue[900],
+    secondary: blue[500],
     disabled: 'rgba(0, 0, 0, 1)',
     hint: 'rgba(218, 212, 237, 1)'
   },

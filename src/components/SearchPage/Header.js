@@ -25,7 +25,7 @@ const Header = ({ classes }) => (
   <Toolbar variant="dense" disableGutters className={classes.root}>
     <Typography
       variant="h6"
-      color="primary"
+      color="textPrimary"
       className={classes.brand}
     >
       Foodsy

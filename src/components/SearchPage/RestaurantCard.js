@@ -37,12 +37,12 @@ const styles = (theme) => ({
   icon: {
     fontSize: 18,
     marginRight: 4,
-    color: theme.palette.primary.light
+    color: theme.palette.text.secondary
   },
   darkIcon: {
     fontSize: 18,
     marginRight: 4,
-    color: theme.palette.primary.dark
+    color: theme.palette.text.primary
   },
   infoRow: {
     display: 'flex',
@@ -70,12 +70,12 @@ const Info = withStyles(styles)(
       {text && (
         to ? (
           <Link to={to} className={classes.link}>
-            <Typography variant={textVariant} color="primary" noWrap>
+            <Typography variant={textVariant} color="textPrimary" noWrap>
               {text}
             </Typography>
           </Link>
         ) : (
-          <Typography variant={textVariant} color="primary" noWrap>
+          <Typography variant={textVariant} color="textPrimary" noWrap>
             {text}
           </Typography>
         )
