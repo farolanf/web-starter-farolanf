@@ -33,6 +33,25 @@ const styles = (theme) => ({
   },
   icon: {
     marginRight: 4
+  },
+  input: {
+    color: 'unset'
+  },
+  fab: {
+    backgroundColor: '#fff',
+    '&:hover': {
+      backgroundColor: '#f0f0f0'
+    },
+    '&&&': {
+      width: 120
+    },
+  },
+  fabLabel: {
+    textTransform: 'none',
+    color: theme.palette.text.primary,
+    ':disabled > &': {
+      color: '#fff'
+    }
   }
 });
 
@@ -106,6 +125,7 @@ class Toolbar extends Component {
                   placeholder="Search food in your area..."
                   value={location}
                   onChange={this.onChangeLocation}
+                  className={classes.input}
                 />
               </form>
             </Paper>
@@ -119,7 +139,8 @@ class Toolbar extends Component {
                   size="small"
                   disabled
                   classes={{
-                    label: classes.buttonLabel
+                    root: classes.fab,
+                    label: classes.fabLabel,
                   }}
                 >
                   Log In
@@ -131,7 +152,8 @@ class Toolbar extends Component {
                   color="primary"
                   size="small"
                   classes={{
-                    label: classes.buttonLabel
+                    root: classes.fab,
+                    label: classes.fabLabel,
                   }}
                 >
                   Sign Up
