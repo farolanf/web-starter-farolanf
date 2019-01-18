@@ -8,12 +8,22 @@ import {
   Marker
 } from 'react-google-maps';
 
-const GMap = ({ data, lat, lng }) => {
-  if (data.search_restaurants
+import blueMarker from '../../assets/img/blue_MarkerM.png';
+
+const GMap = ({ data, search }) => {
+  const { coord, useCoord } = search;
+
+  // center on my location
+  let centerLat = coord.lat || -34.397;
+  let centerLng = coord.lon || 150.644;
+
+  // if not using my location then center on the first restaurant
+  if (!useCoord
+    && data.search_restaurants
     && data.search_restaurants.results
     && data.search_restaurants.results.length > 0) {
-    lat = data.search_restaurants.results[0].lat;
-    lng = data.search_restaurants.results[0].lon;
+    centerLat = data.search_restaurants.results[0].lat;
+    centerLng = data.search_restaurants.results[0].lon;
   }
 
   return (
@@ -22,9 +32,19 @@ const GMap = ({ data, lat, lng }) => {
         mapTypeControl: false,
         fullscreenControl: false
       }}
-      center={{ lat: lat || -34.397, lng: lng || 150.644 }}
+      center={{ lat: centerLat, lng: centerLng }}
       zoom={14}
     >
+      {useCoord && (
+        <Marker
+          title="My location"
+          position={{
+            lat: coord.lat,
+            lng: coord.lon
+          }}
+          icon={blueMarker}
+        />
+      )}
       {data.search_restaurants
         && data.search_restaurants.results
         && data.search_restaurants.results.length > 0
@@ -34,7 +54,6 @@ const GMap = ({ data, lat, lng }) => {
             position={{ lat: r.lat, lng: r.lon }}
             title={r.title}
             label={r.title[0]}
-            clickable
           />
         ))
       }

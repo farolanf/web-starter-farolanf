@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import SearchPage from '../components/SearchPage';
+import GMap from '../GMap';
 
 const mapStateToProps = (state) => ({
   search: state.search
 });
 
-export default connect(mapStateToProps)(SearchPage);
+export default connect(mapStateToProps)(GMap);
