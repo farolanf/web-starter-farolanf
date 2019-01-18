@@ -14,7 +14,8 @@ import GMap from './containers/GMap';
 const styles = (theme) => ({
   root: {
     paddingLeft: 10,
-    backgroundColor: theme.palette.background.default
+    backgroundColor: theme.palette.background.default,
+    height: 'unset !important'
   },
   map: {
     position: 'sticky',
