@@ -96,7 +96,7 @@ const RestaurantCard = ({ restaurant, classes }) => (
           to={'/rest/' + restaurant.id}
         />
         <Typography variant="caption" color="textSecondary">
-          {restaurant.cuisine}
+          {restaurant.cuisine || 'American'}
         </Typography>
         <div className={classes.grow} />
         <Info
@@ -114,11 +114,11 @@ const RestaurantCard = ({ restaurant, classes }) => (
     </Card>
     <div className={classes.infoRow}>
       <Typography variant="caption" color="textSecondary">
-        {restaurant.open_closed + ' \u2022 0.6 miles away'}
+        {(restaurant.open_closed || 'Open now') + ' \u2022 0.6 miles away'}
       </Typography>
       <div className={classes.grow} />
       <Info Icon={WalkIcon} text="6min" textVariant="caption" gutter />
-      <Info Icon={StarIcon} text={restaurant.rating + '/5'} textVariant="caption" />
+      <Info Icon={StarIcon} text={(restaurant.rating || '5') + '/5'} textVariant="caption" />
     </div>
   </div>
 );
